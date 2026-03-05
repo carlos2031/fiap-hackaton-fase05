@@ -18,7 +18,10 @@ COPY src/ ./src/
 COPY .streamlit/ ./.streamlit/
 
 # Instalar dependências (sem dev)
-RUN pip install --no-cache-dir -e .
+# Usar PyTorch CPU-only para reduzir imagem (~500MB vs ~4GB com CUDA)
+RUN pip install --no-cache-dir -e . \
+    --index-url https://download.pytorch.org/whl/cpu \
+    --extra-index-url https://pypi.org/simple
 
 # Copiar modelo YOLO e SQL (após install para melhor cache)
 COPY sql/ ./sql/
