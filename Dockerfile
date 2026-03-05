@@ -3,12 +3,17 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Dependências do sistema para Pillow e psycopg2
+# Dependências do sistema para Pillow, psycopg2 e OpenCV (ultralytics)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpq-dev \
     gcc \
     libjpeg-dev \
     zlib1g-dev \
+    libxcb1 \
+    libxcb-shm0 \
+    libxcb-xfixes0 \
+    libxcb-render0 \
+    libxcb-shape0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar projeto (necessário para pip install -e .)
