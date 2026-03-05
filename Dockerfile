@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY pyproject.toml ./
 COPY config/ ./config/
 COPY src/ ./src/
+COPY .streamlit/ ./.streamlit/
 
 # Instalar dependências (sem dev)
 RUN pip install --no-cache-dir -e .

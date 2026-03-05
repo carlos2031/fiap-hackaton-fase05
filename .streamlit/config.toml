@@ -1,0 +1,4 @@
+# Configuração para rodar atrás de proxy reverso (EasyPanel, Traefik, etc.)
+[server]
+enableCORS = false
+enableXsrfProtection = false
