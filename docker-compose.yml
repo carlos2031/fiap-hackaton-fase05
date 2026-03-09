@@ -4,6 +4,7 @@ services:
     container_name: stride-db
     restart: unless-stopped
     mem_limit: 512m
+    cpus: "1"
     environment:
       POSTGRES_DB: security_analyzer
       POSTGRES_USER: postgres
@@ -24,6 +25,7 @@ services:
     container_name: stride-app
     restart: unless-stopped
     mem_limit: 2g
+    cpus: "1"
     ports:
       - "8501:8501"
     environment:
